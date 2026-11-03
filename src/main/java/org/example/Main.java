@@ -1,17 +1,48 @@
-package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+package org.example;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n--- CALCULATOR ---");
+            System.out.println("1. Add");
+            System.out.println("2. Subtract");
+            System.out.println("3. Multiply");
+            System.out.println("4. Divide");
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+            int num = sc.nextInt();
+            if (num == 0) {
+                System.out.println("Goodbye!");
+                break;
+            }
+            System.out.print("Enter first number: ");
+            double a = sc.nextDouble();
+            System.out.print("Enter second number: ");
+            double b = sc.nextDouble();
+            if (num == 1) {
+                System.out.println("Addition: " + (a + b));
+            }
+            else if (num == 2) {
+                System.out.println("Subtraction: " + (a - b));
+            }
+            else if (num == 3) {
+                System.out.println("Multiplication: " + (a * b));
+            }
+            else if (num == 4) {
+                if (b == 0) {
+                    System.out.println("Cannot divide by zero!");
+                }
+                else {
+                    System.out.println("Division: " + (a / b));
+                }
+            }
+            else {
+                System.out.println("Invalid choice!");
+            }
+        }
 
-//        for (int i = 1; i <= 5; i++) {
-//            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-//            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-//            System.out.println("i = " + i);
-//        }
+        sc.close();
     }
 }
